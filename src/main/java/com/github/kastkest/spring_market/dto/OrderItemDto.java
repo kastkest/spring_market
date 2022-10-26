@@ -21,4 +21,9 @@ public class OrderItemDto {
     this.price = product.getPrice();
     }
 
+
+    public void changeQty (int delta) {
+        this.quantity += delta;
+        this.price = this.quantity * this.pricePerProduct;
+    }
 }

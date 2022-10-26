@@ -16,12 +16,22 @@ public class Cart {
         this.items = new ArrayList<>();
     }
 
-    public void addProduct (Product product) {
+    public void addProduct(Product product) {
+        if (addProduct(product.getId())) {
+            return;
+        }
         items.add(new OrderItemDto(product));
         recalculate();
     }
 
     public boolean addProduct(Long id) {
+        for (OrderItemDto item : items) {
+            if (item.getProductId().equals(id)) {
+                item.changeQty(1);
+                recalculate();
+                return true;
+            }
+        }
         return false;
     }
 

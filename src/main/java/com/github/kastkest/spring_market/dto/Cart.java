@@ -4,6 +4,7 @@ import com.github.kastkest.spring_market.entities.Product;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -33,6 +34,31 @@ public class Cart {
             }
         }
         return false;
+    }
+
+    public void removeProduct(Long id) {
+        items.removeIf(o -> o.getProductId().equals(id));
+        recalculate();
+    }
+
+    public void decreaseProduct(Long id) {
+        Iterator<OrderItemDto> iter = items.iterator();
+        while (iter.hasNext()) {
+            OrderItemDto item = iter.next();
+            if (item.getProductId().equals(id)) {
+                item.changeQty(-1);
+                if (item.getQuantity() <= 0) {
+                    iter.remove();
+                }
+                recalculate();
+                return;
+            }
+        }
+    }
+
+    public void clear() {
+        items.clear();
+        totalPrice = 0;
     }
 
     private void recalculate() {

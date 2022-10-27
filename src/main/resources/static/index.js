@@ -40,6 +40,10 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
             });
     }
 
+    $scope.createOrder = function () {
+
+    }
+
     $scope.tryToAuth = function () {
         $http.post('http://localhost:8189/market/auth', $scope.user)
             .then(function successCallback(response) {

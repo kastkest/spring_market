@@ -42,3 +42,21 @@ values ('bob', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', '
 insert into users_roles (user_id, role_id)
 values (1, 1),
        (2, 2);
+
+create table orders (
+    id bigserial primary key,
+    user_id bigint not null references users(id),
+    total_price int not null,
+    address varchar(255),
+    phone varchar(255)
+)
+
+create table order_items (
+    id                      bigserial primary key,
+    product_id              bigint references products(id),
+    user_id                 bigint references users(id),
+    order_id                bigint references orders(id),
+    quantity                int,
+    price_per_product       int,
+    price                   int
+)

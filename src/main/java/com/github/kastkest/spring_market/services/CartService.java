@@ -27,7 +27,7 @@ public class CartService {
     public void addProductByIdToCart(Long productId) {
         if (!getCurrentCart().addProduct(productId)) {
             Product product  = productsService.findById(productId).orElseThrow(()-> new ResourceNotFoundException("Невозможно добавить в корзину. Продукт не найден, id" + productId));
-            getCurrentCart().addProduct(productId);
+            getCurrentCart().addProduct(product);
         }
     }
     

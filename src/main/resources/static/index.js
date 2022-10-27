@@ -20,11 +20,23 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
     };
 
     $scope.addToCart = function (productId) {
-        $http.get(contextPath + '/add')
-            .then(function successCallback(response) {
-                alert('MY NAME IS: ' + response.data.username);
-            }, function errorCallback(response) {
-                alert('UNAUTHORIZED');
+        $http.get(contextPath + '/carts/add/' + productId)
+            .then(function (response) {
+                $scope.loadCart();
+            });
+    }
+
+    $scope.loadCart = function () {
+        $http.get(contextPath + '/carts')
+            .then(function (response) {
+                $scope.Cart = response.data;
+            });
+    }
+
+    $scope.clearCart = function() {
+        $http.get(contextPath + '/carts/clear')
+            .then(function (response) {
+                $scope.loadCart();
             });
     }
 
@@ -75,4 +87,5 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
     }
 
     $scope.loadProducts();
+    $scope.loadCart();
 });

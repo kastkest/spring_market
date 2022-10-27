@@ -8,23 +8,34 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "orders")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private User user;
 
-    @Column(name = "price")
-    private Integer price;
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> items;
+
+    @Column(name = "total_price")
+    private Integer totalPrice;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone")
+    private String phone;
 
     @CreationTimestamp
     @Column(name = "created_at")

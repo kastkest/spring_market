@@ -30,4 +30,8 @@ public class CartService {
             getCurrentCart().addProduct(productId);
         }
     }
+    
+    public void clear() {
+        getCurrentCart().clear();
+    }
 }

@@ -6,6 +6,7 @@ import com.github.kastkest.spring_market.dto.OrderItemDto;
 import com.github.kastkest.spring_market.entities.Order;
 import com.github.kastkest.spring_market.entities.OrderItem;
 import com.github.kastkest.spring_market.entities.User;
+import com.github.kastkest.spring_market.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.repositories.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,21 +20,32 @@ import java.util.stream.Collectors;
 public class OrderService {
     private final OrdersRepository ordersRepository;
     private final CartService cartService;
+    private final ProductsService productsService;
 
     @Transactional
     public void createOrder(User user, OrderDetailsDto orderDetailsDto) {
         Cart currentCart = cartService.getCurrentCart();
-
         Order order = new Order();
         order.setAddress(orderDetailsDto.getAddress());
         order.setPhone(orderDetailsDto.getPhone());
         order.setUser(user);
         order.setTotalPrice(currentCart.getTotalPrice());
-        List<OrderItem> items = currentCart.getItems()
-                .stream().map(orderItemDto -> {OrderItem item = new OrderItem();
+        List<OrderItem> items = currentCart.getItems().stream()
+                .map(o -> {
+                    OrderItem item = new OrderItem();
                     item.setOrder(order);
-                    item.setPricePerProduct(1);
+                    item.setQuantity(o.getQuantity());
+                    item.setPricePerProduct(o.getPricePerProduct());
+                    item.setPrice(o.getPrice());
+                    item.setProduct(productsService.findById(o.getProductId()).orElseThrow(() -> new ResourceNotFoundException("Product not found")));
                     return item;
                 }).collect(Collectors.toList());
+        order.setItems(items);
+        ordersRepository.save(order);
+        currentCart.clear();
+    }
+
+    public List<Order> findOrdersByUsername(String username) {
+        return ordersRepository.findAllByUsername(username);
     }
 }

@@ -1,11 +1,13 @@
 package com.github.kastkest.spring_market.dto;
 
 import com.github.kastkest.spring_market.entities.Product;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderItemDto {
     private Long productId;
     private String productTitle;

@@ -1,51 +1,38 @@
-angular.module('market', ['ngStorage']).controller('indexController', function ($scope, $rootScope, $http, $localStorage) {
-    const contextPath = 'http://localhost:8189/market/api/v1';
+(function () {
+    angular
+        .module('market', ['ngRoute', 'ngStorage'])
+        .config(config)
+        .run(run);
 
-    if ($localStorage.springWebUser) {
-        $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.springWebUser.token;
-    }
-
-    $scope.loadProducts = function (pageIndex = 1) {
-        $http({
-            url: contextPath + '/products',
-            method: 'GET',
-            params: {
-                title_part: $scope.filter ? $scope.filter.title_part : null,
-                min_price: $scope.filter ? $scope.filter.min_price : null,
-                max_price: $scope.filter ? $scope.filter.max_price : null
-            }
-        }).then(function (response) {
-            $scope.ProductsPage = response.data;
-        });
-    };
-
-    $scope.addToCart = function (productId) {
-        $http.get(contextPath + '/carts/add/' + productId)
-            .then(function (response) {
-                $scope.loadCart();
+    function config($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'welcome/welcome.html',
+                controller: 'welcomeController'
+            })
+            .when('/store', {
+                templateUrl: 'store/store.html',
+                controller: 'storeController'
+            })
+            .when('/cart', {
+                templateUrl: 'cart/cart.html',
+                controller: 'cartController'
+            })
+            .otherwise({
+                redirectTo: '/'
             });
     }
 
-    $scope.loadCart = function () {
-        $http.get(contextPath + '/carts')
-            .then(function (response) {
-                $scope.Cart = response.data;
-            });
+    function run($rootScope, $http, $localStorage) {
+        if ($localStorage.springWebUser) {
+            $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.springWebUser.token;
+        }
     }
+})();
 
-    $scope.clearCart = function() {
-        $http.get(contextPath + '/carts/clear')
-            .then(function (response) {
-                $scope.loadCart();
-            });
-    }
-
-    $scope.createOrder = function () {
-
-    }
-
+angular.module('market-front').controller('indexController', function ($rootScope, $scope, $http, $location, $localStorage) {
     $scope.tryToAuth = function () {
-        $http.post('http://localhost:8189/market/auth', $scope.user)
+        $http.post('http://localhost:8189/app/auth', $scope.user)
             .then(function successCallback(response) {
                 if (response.data.token) {
                     $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
@@ -53,6 +40,8 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
 
                     $scope.user.username = null;
                     $scope.user.password = null;
+
+                    $location.path('/');
                 }
             }, function errorCallback(response) {
             });
@@ -60,12 +49,8 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
 
     $scope.tryToLogout = function () {
         $scope.clearUser();
-        if ($scope.user.username) {
-            $scope.user.username = null;
-        }
-        if ($scope.user.password) {
-            $scope.user.password = null;
-        }
+        $scope.user = null;
+        $location.path('/');
     };
 
     $scope.clearUser = function () {
@@ -80,16 +65,4 @@ angular.module('market', ['ngStorage']).controller('indexController', function (
             return false;
         }
     };
-
-    $scope.showCurrentUserInfo = function () {
-        $http.get('http://localhost:8189/market/api/v1/profile')
-            .then(function successCallback(response) {
-                alert('MY NAME IS: ' + response.data.username);
-            }, function errorCallback(response) {
-                alert('UNAUTHORIZED');
-            });
-    }
-
-    $scope.loadProducts();
-    $scope.loadCart();
 });

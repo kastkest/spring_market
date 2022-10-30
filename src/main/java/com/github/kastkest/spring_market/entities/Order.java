@@ -22,7 +22,7 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "order")

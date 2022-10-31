@@ -1,12 +1,11 @@
 package com.github.kastkest.spring_market.controllers;
 
+
 import com.github.kastkest.spring_market.converters.OrderConverter;
-import com.github.kastkest.spring_market.dto.Cart;
 import com.github.kastkest.spring_market.dto.OrderDetailsDto;
 import com.github.kastkest.spring_market.dto.OrderDto;
 import com.github.kastkest.spring_market.entities.User;
 import com.github.kastkest.spring_market.exceptions.ResourceNotFoundException;
-import com.github.kastkest.spring_market.services.CartService;
 import com.github.kastkest.spring_market.services.OrderService;
 import com.github.kastkest.spring_market.services.UserService;
 import lombok.RequiredArgsConstructor;

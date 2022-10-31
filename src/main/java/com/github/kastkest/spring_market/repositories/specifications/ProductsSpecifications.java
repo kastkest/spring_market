@@ -1,5 +1,6 @@
 package com.github.kastkest.spring_market.repositories.specifications;
 
+
 import com.github.kastkest.spring_market.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 

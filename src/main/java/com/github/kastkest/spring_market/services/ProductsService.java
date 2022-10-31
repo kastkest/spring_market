@@ -1,5 +1,6 @@
 package com.github.kastkest.spring_market.services;
 
+
 import com.github.kastkest.spring_market.dto.ProductDto;
 import com.github.kastkest.spring_market.entities.Product;
 import com.github.kastkest.spring_market.exceptions.ResourceNotFoundException;
@@ -31,7 +32,7 @@ public class ProductsService {
             spec = spec.and(ProductsSpecifications.titleLike(partTitle));
         }
 
-        return productsRepository.findAll(spec, PageRequest.of(page - 1, 50));
+        return productsRepository.findAll(spec, PageRequest.of(page - 1, 8));
     }
 
     public Optional<Product> findById(Long id) {

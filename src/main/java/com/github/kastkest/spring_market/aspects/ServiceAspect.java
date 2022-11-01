@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class ServiceAspect {
 
     @Before("execution(public * com.github.kastkest.spring_market.services.OrderService.*(..))")
-    public void beforeOrderServiceEachMethod() {
+    public void beforeAnyOrderServiceMethod() {
         System.out.println("AOP: что-то произошло");
     }
 }

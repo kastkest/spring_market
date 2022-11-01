@@ -1,5 +1,6 @@
 package com.github.kastkest.spring_market.aspects;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -11,8 +12,40 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServiceAspect {
 
-    @Before("execution(public * com.github.kastkest.spring_market.services.OrderService.*(..))")
-    public void beforeAnyOrderServiceMethod() {
-        System.out.println("AOP: что-то произошло");
+    @Around("execution(public * com.github.kastkest.spring_market.services.OrderService.*(..))")
+    public Object durationOfAnyOrderServiceMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.err.println("Начало метода");
+        Long begin = System.currentTimeMillis();
+        Object out = joinPoint.proceed();
+        Long end = System.currentTimeMillis();
+        Long duration = end - begin;
+        System.err.println("OrderService: " + duration +" ms.");
+        System.err.println("Конец метода");
+        return out;
+    }
+
+
+    @Around("execution(public * com.github.kastkest.spring_market.services.ProductsService.*(..))")
+    public Object durationOfAnyProductServiceMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.err.println("Начало метода");
+        Long begin = System.currentTimeMillis();
+        Object out = joinPoint.proceed();
+        Long end = System.currentTimeMillis();
+        Long duration = end - begin;
+        System.err.println("ProductsService: " + duration +" ms.");
+        System.err.println("Конец метода");
+        return out;
+    }
+
+    @Around("execution(public * com.github.kastkest.spring_market.services.UserService.*(..))")
+    public Object durationOfAnyUserServiceMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.err.println("Начало метода");
+        Long begin = System.currentTimeMillis();
+        Object out = joinPoint.proceed();
+        Long end = System.currentTimeMillis();
+        Long duration = end - begin;
+        System.err.println("UserService: " + duration +" ms.");
+        System.err.println("Конец метода");
+        return out;
     }
 }

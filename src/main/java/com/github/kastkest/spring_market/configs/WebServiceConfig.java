@@ -26,18 +26,18 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean
-    public XsdSchema studentsSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("students.xsd"));
+    public XsdSchema productsSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("products.xsd"));
     }
 
     // http://localhost:8189/soap/products.wsdl
-    @Bean(name = "students")
-    public DefaultWsdl11Definition studentsWsdl11Definition(XsdSchema studentsSchema) {
+    @Bean(name = "products")
+    public DefaultWsdl11Definition productsWsdl11Definition(XsdSchema productsSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ProductsPort");
         wsdl11Definition.setLocationUri("/soap");
         wsdl11Definition.setTargetNamespace("http://www.github.com/kaskest/spring_market/products");
-        wsdl11Definition.setSchema(studentsSchema);
+        wsdl11Definition.setSchema(productsSchema);
         return wsdl11Definition;
     }
 }

@@ -6,6 +6,7 @@ import com.github.kastkest.spring_market.entities.Product;
 import com.github.kastkest.spring_market.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.repositories.ProductsRepository;
 import com.github.kastkest.spring_market.repositories.specifications.ProductsSpecifications;
+import com.github.kastkest.spring_market.soap.products.Products;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,7 +14,10 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +37,18 @@ public class ProductsService {
         }
 
         return productsRepository.findAll(spec, PageRequest.of(page - 1, 8));
+    }
+
+    public static final Function<Product, Products> functionEntityToSoap = pe -> {
+        Products p = new Products();
+        p.setId(pe.getId());
+        p.setTitle(pe.getTitle());
+        p.setPrice(pe.getPrice());
+        return p;
+    };
+
+    public List<Products> getAllProducts() {
+        return productsRepository.findAll().stream().map(functionEntityToSoap).collect(Collectors.toList());
     }
 
     public Optional<Product> findById(Long id) {

@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.entities;
+package com.github.kastkest.spring_market.auth.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

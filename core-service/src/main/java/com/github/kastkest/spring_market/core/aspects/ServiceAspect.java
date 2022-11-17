@@ -37,7 +37,7 @@ public class ServiceAspect {
         return out;
     }
 
-    @Around("execution(public * com.github.kastkest.spring_market.core.services.UserService.*(..))")
+    @Around("execution(public * com.github.kastkest.spring_market.auth.services.UserService.*(..))")
     public Object durationOfAnyUserServiceMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         System.err.println("Начало метода");
         Long begin = System.currentTimeMillis();

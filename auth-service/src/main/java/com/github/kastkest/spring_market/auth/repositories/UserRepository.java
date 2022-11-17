@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.repositories;
+package com.github.kastkest.spring_market.auth.repositories;
 
 import com.github.kastkest.spring_market.core.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;

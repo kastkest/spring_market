@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.controllers;
+package com.github.kastkest.spring_market.auth.controllers;
 
 
 import com.github.kastkest.spring_market.core.dto.JwtRequest;

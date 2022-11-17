@@ -6,16 +6,14 @@ import com.github.kastkest.spring_market.dto.StringResponse;
 import com.github.kastkest.spring_market.services.CartService;
 import com.github.kastkest.spring_market.services.ProductsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class CartsController {
     private final CartService cartService;
     private final ProductsService productsService;

@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.utils;
+package com.github.kastkest.spring_market.auth.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

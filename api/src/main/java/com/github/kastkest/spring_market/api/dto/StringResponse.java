@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.api.dto;
 
 public class StringResponse {
     private String value;

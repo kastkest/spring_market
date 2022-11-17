@@ -37,7 +37,7 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
-            - PrefixPath=/web-market-auth
+            - PrefixPath=/market-auth
             - JwtAuthFilter
 
 jwt:

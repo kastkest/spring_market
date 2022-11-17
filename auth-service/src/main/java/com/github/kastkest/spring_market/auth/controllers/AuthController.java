@@ -1,11 +1,12 @@
 package com.github.kastkest.spring_market.auth.controllers;
 
 
-import com.github.kastkest.spring_market.core.dto.JwtRequest;
-import com.github.kastkest.spring_market.core.dto.JwtResponse;
-import com.github.kastkest.spring_market.core.exceptions.AppError;
-import com.github.kastkest.spring_market.core.services.UserService;
-import com.github.kastkest.spring_market.core.utils.JwtTokenUtil;
+
+import com.github.kastkest.spring_market.api.exceptions.AppError;
+import com.github.kastkest.spring_market.auth.dto.JwtRequest;
+import com.github.kastkest.spring_market.auth.dto.JwtResponse;
+import com.github.kastkest.spring_market.auth.services.UserService;
+import com.github.kastkest.spring_market.auth.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

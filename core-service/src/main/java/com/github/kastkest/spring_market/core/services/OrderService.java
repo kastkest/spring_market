@@ -1,13 +1,12 @@
 package com.github.kastkest.spring_market.core.services;
 
 
+import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.dto.Cart;
 import com.github.kastkest.spring_market.core.dto.OrderDetailsDto;
 import com.github.kastkest.spring_market.core.entities.Order;
 import com.github.kastkest.spring_market.core.entities.OrderItem;
 import com.github.kastkest.spring_market.core.repositories.OrdersRepository;
-import com.github.kastkest.spring_market.core.entities.User;
-import com.github.kastkest.spring_market.core.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,13 +22,13 @@ public class OrderService {
     private final ProductsService productsService;
 
     @Transactional
-    public void createOrder(User user, OrderDetailsDto orderDetailsDto) {
-        String cartKey = cartService.getCartUuidFromSuffix(user.getUsername());
+    public void createOrder(String username, OrderDetailsDto orderDetailsDto) {
+        String cartKey = cartService.getCartUuidFromSuffix(username);
         Cart currentCart = cartService.getCurrentCart(cartKey);
         Order order = new Order();
         order.setAddress(orderDetailsDto.getAddress());
         order.setPhone(orderDetailsDto.getPhone());
-        order.setUser(user);
+        order.setUsername(username);
         order.setTotalPrice(currentCart.getTotalPrice());
         List<OrderItem> items = currentCart.getItems().stream()
                 .map(o -> {

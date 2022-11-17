@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.exceptions;
+package com.github.kastkest.spring_market.api.exceptions;
 
 public class AppError {
     private int statusCode;

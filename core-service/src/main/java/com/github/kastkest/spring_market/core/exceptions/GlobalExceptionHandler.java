@@ -1,5 +1,7 @@
 package com.github.kastkest.spring_market.core.exceptions;
 
+import com.github.kastkest.spring_market.api.exceptions.AppError;
+import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

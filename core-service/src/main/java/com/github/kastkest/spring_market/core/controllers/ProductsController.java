@@ -1,10 +1,10 @@
 package com.github.kastkest.spring_market.core.controllers;
 
 
+import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.converters.ProductConverter;
 import com.github.kastkest.spring_market.core.dto.ProductDto;
 import com.github.kastkest.spring_market.core.entities.Product;
-import com.github.kastkest.spring_market.core.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.services.ProductsService;
 import com.github.kastkest.spring_market.core.validators.ProductValidator;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class ProductsController {
     private final ProductsService productsService;
     private final ProductConverter productConverter;

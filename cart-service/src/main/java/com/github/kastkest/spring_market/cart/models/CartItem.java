@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderItemDto {
+public class CartItem {
     private Long productId;
     private String productTitle;
     private int quantity;
     private int pricePerProduct;
     private int price;
 
-    public OrderItemDto(ProductDto productDto) {
+    public CartItem(ProductDto productDto) {
         this.productId = productDto.getId();
         this.productTitle = productDto.getTitle();
         this.quantity = 1;

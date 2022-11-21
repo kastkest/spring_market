@@ -1,6 +1,6 @@
-package com.github.kastkest.spring_market.core.repositories;
+package com.github.kastkest.spring_market.core.backend.repositories;
 
-import com.github.kastkest.spring_market.core.entities.Order;
+import com.github.kastkest.spring_market.core.backend.entities.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

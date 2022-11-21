@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.entities;
+package com.github.kastkest.spring_market.core.backend.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

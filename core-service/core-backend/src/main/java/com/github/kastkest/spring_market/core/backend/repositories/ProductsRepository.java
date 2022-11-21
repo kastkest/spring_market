@@ -1,7 +1,7 @@
-package com.github.kastkest.spring_market.core.repositories;
+package com.github.kastkest.spring_market.core.backend.repositories;
 
 
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.core.backend.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

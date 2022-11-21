@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.exceptions;
+package com.github.kastkest.spring_market.core.backend.exceptions;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

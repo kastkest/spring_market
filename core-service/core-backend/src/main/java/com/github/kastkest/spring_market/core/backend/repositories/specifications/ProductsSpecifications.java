@@ -1,7 +1,7 @@
-package com.github.kastkest.spring_market.core.repositories.specifications;
+package com.github.kastkest.spring_market.core.backend.repositories.specifications;
 
 
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.core.backend.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 
 public class ProductsSpecifications {

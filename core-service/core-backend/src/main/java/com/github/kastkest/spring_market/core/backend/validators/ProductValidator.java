@@ -1,7 +1,7 @@
-package com.github.kastkest.spring_market.core.validators;
+package com.github.kastkest.spring_market.core.backend.validators;
 
-import com.github.kastkest.spring_market.core.dto.ProductDto;
-import com.github.kastkest.spring_market.core.exceptions.ValidationException;
+import com.github.kastkest.spring_market.core.backend.dto.ProductDto;
+import com.github.kastkest.spring_market.core.backend.exceptions.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.exceptions;
+package com.github.kastkest.spring_market.core.backend.exceptions;
 
 import com.github.kastkest.spring_market.api.exceptions.AppError;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;

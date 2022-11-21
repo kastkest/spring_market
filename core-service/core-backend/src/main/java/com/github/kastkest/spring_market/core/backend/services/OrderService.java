@@ -1,12 +1,12 @@
-package com.github.kastkest.spring_market.core.services;
+package com.github.kastkest.spring_market.core.backend.services;
 
 
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
-import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.dto.OrderDetailsDto;
-import com.github.kastkest.spring_market.core.entities.Order;
-import com.github.kastkest.spring_market.core.entities.OrderItem;
-import com.github.kastkest.spring_market.core.repositories.OrdersRepository;
+import com.github.kastkest.spring_market.core.backend.dto.Cart;
+import com.github.kastkest.spring_market.core.backend.dto.OrderDetailsDto;
+import com.github.kastkest.spring_market.core.backend.entities.Order;
+import com.github.kastkest.spring_market.core.backend.entities.OrderItem;
+import com.github.kastkest.spring_market.core.backend.repositories.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

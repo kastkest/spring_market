@@ -1,13 +1,11 @@
-package com.github.kastkest.spring_market.core.controllers;
+package com.github.kastkest.spring_market.core.backend.controllers;
 
 
-import com.github.kastkest.spring_market.core.dto.ProfileDto;
+import com.github.kastkest.spring_market.core.backend.dto.ProfileDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/profile")

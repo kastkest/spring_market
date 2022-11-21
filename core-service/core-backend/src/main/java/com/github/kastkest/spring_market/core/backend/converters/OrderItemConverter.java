@@ -1,8 +1,8 @@
-package com.github.kastkest.spring_market.core.converters;
+package com.github.kastkest.spring_market.core.backend.converters;
 
 
-import com.github.kastkest.spring_market.core.dto.OrderItemDto;
-import com.github.kastkest.spring_market.core.entities.OrderItem;
+import com.github.kastkest.spring_market.core.backend.dto.OrderItemDto;
+import com.github.kastkest.spring_market.core.backend.entities.OrderItem;
 import org.springframework.stereotype.Component;
 
 @Component

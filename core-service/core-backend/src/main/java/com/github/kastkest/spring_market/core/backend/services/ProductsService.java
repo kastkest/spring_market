@@ -1,11 +1,11 @@
-package com.github.kastkest.spring_market.core.services;
+package com.github.kastkest.spring_market.core.backend.services;
 
 
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
-import com.github.kastkest.spring_market.core.dto.ProductDto;
-import com.github.kastkest.spring_market.core.repositories.ProductsRepository;
-import com.github.kastkest.spring_market.core.repositories.specifications.ProductsSpecifications;
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.core.backend.dto.ProductDto;
+import com.github.kastkest.spring_market.core.backend.repositories.ProductsRepository;
+import com.github.kastkest.spring_market.core.backend.repositories.specifications.ProductsSpecifications;
+import com.github.kastkest.spring_market.core.backend.entities.Product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

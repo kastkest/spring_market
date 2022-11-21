@@ -1,6 +1,6 @@
 package com.github.kastkest.spring_market.cart.backend.model;
 
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.core.backend.entities.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

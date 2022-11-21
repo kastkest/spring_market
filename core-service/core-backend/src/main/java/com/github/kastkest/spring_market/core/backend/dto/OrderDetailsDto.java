@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.core.backend.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

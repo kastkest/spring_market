@@ -1,9 +1,9 @@
-package com.github.kastkest.spring_market.core.services;
+package com.github.kastkest.spring_market.cart.backend.services;
+
 
 
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
-import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.cart.backend.model.Cart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;

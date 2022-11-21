@@ -1,10 +1,9 @@
-package com.github.kastkest.spring_market.core.controllers;
+package com.github.kastkest.spring_market.cart.backend.controllers;
 
 
 import com.github.kastkest.spring_market.api.dto.StringResponse;
-import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.services.CartService;
-import com.github.kastkest.spring_market.core.services.ProductsService;
+import com.github.kastkest.spring_market.cart.backend.model.Cart;
+import com.github.kastkest.spring_market.cart.backend.services.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

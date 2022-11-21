@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.core.configs;
+package com.github.kastkest.spring_market.cart.backend.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

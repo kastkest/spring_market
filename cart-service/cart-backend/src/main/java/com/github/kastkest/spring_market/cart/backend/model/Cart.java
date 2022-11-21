@@ -1,7 +1,7 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.cart.backend.model;
 
 
-import com.github.kastkest.spring_market.core.entities.Product;
+
 import lombok.Data;
 
 import java.util.ArrayList;

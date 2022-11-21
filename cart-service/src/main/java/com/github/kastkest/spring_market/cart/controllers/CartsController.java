@@ -1,10 +1,10 @@
-package com.github.kastkest.spring_market.core.controllers;
+package com.github.kastkest.spring_market.cart.controllers;
+
 
 
 import com.github.kastkest.spring_market.api.dto.StringResponse;
-import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.services.CartService;
-import com.github.kastkest.spring_market.core.services.ProductsService;
+import com.github.kastkest.spring_market.cart.models.Cart;
+import com.github.kastkest.spring_market.cart.services.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 public class CartsController {
     private final CartService cartService;
-    private final ProductsService productsService;
 
     @GetMapping("/{uuid}")
     public Cart getCart(@RequestHeader(required = false) String username, @PathVariable String uuid) {

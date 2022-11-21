@@ -1,9 +1,10 @@
-package com.github.kastkest.spring_market.core.services;
+package com.github.kastkest.spring_market.cart.services;
 
 
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
-import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.cart.integrations.ProductsServiceIntegration;
+import com.github.kastkest.spring_market.cart.models.Cart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,7 +16,7 @@ import java.util.function.Consumer;
 @Service
 @RequiredArgsConstructor
 public class CartService {
-    private final ProductsService productsService;
+    private final ProductsServiceIntegration productsServiceIntegration;
     private final RedisTemplate<String, Object> redisTemplate;
 
     @Value("${utils.cart.prefix}")
@@ -37,9 +38,9 @@ public class CartService {
     }
 
     public void addToCart(String cartKey, Long productId) {
-        Product product = productsService.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Невозможно добавить продукт в корзину. Продукт не найдет, id: " + productId));
+        ProductDto productDto = productsServiceIntegration.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Невозможно добавить продукт в корзину. Продукт не найдет, id: " + productId));
         execute(cartKey, c -> {
-            c.add(product);
+            c.add(productDto);
         });
     }
 

@@ -1,7 +1,8 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.cart.models;
 
 
-import com.github.kastkest.spring_market.core.entities.Product;
+
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ public class Cart {
         this.items = new ArrayList<>();
     }
 
-    public void add(Product product) {
-        if (add(product.getId())) {
+    public void add(ProductDto productDto) {
+        if (add(productDto.getId())) {
             return;
         }
-        items.add(new OrderItemDto(product));
+        items.add(new OrderItemDto(productDto));
         recalculate();
     }
 

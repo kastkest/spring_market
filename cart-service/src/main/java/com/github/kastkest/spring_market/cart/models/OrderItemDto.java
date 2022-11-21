@@ -1,6 +1,6 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.cart.models;
 
-import com.github.kastkest.spring_market.core.entities.Product;
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,12 +15,12 @@ public class OrderItemDto {
     private int pricePerProduct;
     private int price;
 
-    public OrderItemDto(Product product) {
-        this.productId = product.getId();
-        this.productTitle = product.getTitle();
+    public OrderItemDto(ProductDto productDto) {
+        this.productId = productDto.getId();
+        this.productTitle = productDto.getTitle();
         this.quantity = 1;
-        this.pricePerProduct = product.getPrice();
-        this.price = product.getPrice();
+        this.pricePerProduct = productDto.getPrice();
+        this.price = productDto.getPrice();
     }
 
     public void changeQuantity(int delta) {

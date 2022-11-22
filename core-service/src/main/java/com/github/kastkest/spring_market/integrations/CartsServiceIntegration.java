@@ -14,6 +14,16 @@ public class CartsServiceIntegration {
     private final WebClient cartServiceWebClient;
 
 
+    public CartDto clearUserCart(String username) {
+        CartDto cart = cartServiceWebClient.get()
+                .uri("/api/v1/cart/0/clear")
+                .header("username", username)
+                .retrieve()
+                .bodyToMono(CartDto.class)
+                .block();
+        return cart;
+    }
+
     public CartDto getUserCart(String username) {
         CartDto cart = cartServiceWebClient.get()
                 .uri("/api/v1/cart/0")

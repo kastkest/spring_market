@@ -1,10 +1,12 @@
-package com.github.kastkest.spring_market.core.services;
+package com.github.kastkest.spring_market.auth.services;
 
 
-import com.github.kastkest.spring_market.core.repositories.UserRepository;
-import com.github.kastkest.spring_market.core.entities.Role;
-import com.github.kastkest.spring_market.core.entities.User;
+
+import com.github.kastkest.spring_market.auth.entities.Role;
+import com.github.kastkest.spring_market.auth.entities.User;
+import com.github.kastkest.spring_market.auth.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.Collection;
 import java.util.Optional;

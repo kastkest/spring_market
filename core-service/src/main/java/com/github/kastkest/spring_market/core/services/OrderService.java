@@ -3,7 +3,7 @@ package com.github.kastkest.spring_market.core.services;
 
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.dto.Cart;
-import com.github.kastkest.spring_market.core.dto.OrderDetailsDto;
+import com.github.kastkest.spring_market.api.core.OrderDetailsDto;
 import com.github.kastkest.spring_market.core.entities.Order;
 import com.github.kastkest.spring_market.core.entities.OrderItem;
 import com.github.kastkest.spring_market.core.repositories.OrdersRepository;

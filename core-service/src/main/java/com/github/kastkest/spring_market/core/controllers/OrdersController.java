@@ -2,14 +2,13 @@ package com.github.kastkest.spring_market.core.controllers;
 
 
 import com.github.kastkest.spring_market.core.converters.OrderConverter;
-import com.github.kastkest.spring_market.core.dto.OrderDetailsDto;
-import com.github.kastkest.spring_market.core.dto.OrderDto;
+import com.github.kastkest.spring_market.api.core.OrderDetailsDto;
+import com.github.kastkest.spring_market.api.core.OrderDto;
 import com.github.kastkest.spring_market.core.services.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 

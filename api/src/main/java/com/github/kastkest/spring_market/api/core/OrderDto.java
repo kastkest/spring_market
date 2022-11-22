@@ -1,10 +1,8 @@
-package com.github.kastkest.spring_market.core.dto;
+package com.github.kastkest.spring_market.api.core;
 
-import lombok.Data;
 
 import java.util.List;
 
-@Data
 public class OrderDto {
     private Long id;
     private String username;

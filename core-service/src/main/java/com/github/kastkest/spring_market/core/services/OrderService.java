@@ -1,6 +1,7 @@
 package com.github.kastkest.spring_market.core.services;
 
 
+import com.github.kastkest.spring_market.api.cart.CartDto;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 
 import com.github.kastkest.spring_market.api.core.OrderDetailsDto;
@@ -24,8 +25,7 @@ public class OrderService {
 
     @Transactional
     public void createOrder(String username, OrderDetailsDto orderDetailsDto) {
-        String cartKey = cartService.getCartUuidFromSuffix(username);
-        Cart currentCart = cartService.getCurrentCart(cartKey);
+        CartDto currentCart = cartsServiceIntegration.getUserCart(username);
         Order order = new Order();
         order.setAddress(orderDetailsDto.getAddress());
         order.setPhone(orderDetailsDto.getPhone());
@@ -43,7 +43,7 @@ public class OrderService {
                 }).collect(Collectors.toList());
         order.setItems(items);
         ordersRepository.save(order);
-        cartService.clearCart(cartKey);
+        cartsServiceIntegration.clearUserCart(username);
     }
 
     public List<Order> findOrdersByUsername(String username) {

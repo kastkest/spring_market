@@ -14,14 +14,14 @@ public class CartsServiceIntegration {
     private final WebClient cartServiceWebClient;
 
 
-    public CartDto clearUserCart(String username) {
-        CartDto cart = cartServiceWebClient.get()
+    public void clearUserCart(String username) {
+        cartServiceWebClient.get()
                 .uri("/api/v1/cart/0/clear")
                 .header("username", username)
                 .retrieve()
-                .bodyToMono(CartDto.class)
+                .toBodilessEntity()
                 .block();
-        return cart;
+
     }
 
     public CartDto getUserCart(String username) {

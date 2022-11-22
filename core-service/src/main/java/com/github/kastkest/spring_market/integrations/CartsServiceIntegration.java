@@ -1,25 +1,26 @@
 package com.github.kastkest.spring_market.integrations;
 
 
-import com.github.kastkest.spring_market.api.core.ProductDto;
+import com.github.kastkest.spring_market.api.cart.CartDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
 public class CartsServiceIntegration {
-    private final RestTemplate restTemplate;
-
-    @Value("${integrations.cart-service.url}")
-    private String cartServiceUrl;
+    private final WebClient cartServiceWebClient;
 
 
-    public Optional<ProductDto> findById(Long id) {
-        ProductDto productDto = restTemplate.getForObject(cartServiceUrl + "/api/v1/products/" + id, ProductDto.class);
-        return Optional.ofNullable(productDto);
+    public CartDto getUserCart(String username) {
+        CartDto cart = cartServiceWebClient.get()
+                .uri("/api/v1/cart/0")
+                .header("username", username)
+                .retrieve()
+                .bodyToMono(CartDto.class)
+                .block();
+        return cart;
     }
 }

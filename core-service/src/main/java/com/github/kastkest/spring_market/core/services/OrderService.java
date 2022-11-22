@@ -7,6 +7,7 @@ import com.github.kastkest.spring_market.api.core.OrderDetailsDto;
 import com.github.kastkest.spring_market.core.entities.Order;
 import com.github.kastkest.spring_market.core.entities.OrderItem;
 import com.github.kastkest.spring_market.core.repositories.OrdersRepository;
+import com.github.kastkest.spring_market.integrations.CartsServiceIntegration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderService {
     private final OrdersRepository ordersRepository;
-    private final CartService cartService;
+    private final CartsServiceIntegration cartsServiceIntegration;
     private final ProductsService productsService;
 
     @Transactional

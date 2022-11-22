@@ -1,12 +1,15 @@
 package com.github.kastkest.spring_market.core.controllers;
 
 
+
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.converters.ProductConverter;
 import com.github.kastkest.spring_market.core.entities.Product;
 import com.github.kastkest.spring_market.core.services.ProductsService;
 import com.github.kastkest.spring_market.core.validators.ProductValidator;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 

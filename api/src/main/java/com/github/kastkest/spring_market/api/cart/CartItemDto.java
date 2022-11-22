@@ -1,13 +1,13 @@
 package com.github.kastkest.spring_market.api.cart;
 
-import com.github.kastkest.spring_market.api.core.ProductDto;
+
 
 public class CartItemDto {
-    private final Long productId;
-    private final String productTitle;
-    private final int quantity;
-    private final int pricePerProduct;
-    private final int price;
+    private Long productId;
+    private String productTitle;
+    private int quantity;
+    private int pricePerProduct;
+    private int price;
 
     public CartItemDto(Long productId, String productTitle, int quantity, int pricePerProduct, int price) {
         this.productId = productId;
@@ -17,5 +17,48 @@ public class CartItemDto {
         this.price = price;
     }
 
+    public Long getProductId() {
+        return productId;
+    }
 
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public String getProductTitle() {
+        return productTitle;
+    }
+
+    public void setProductTitle(String productTitle) {
+        this.productTitle = productTitle;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getPricePerProduct() {
+        return pricePerProduct;
+    }
+
+    public void setPricePerProduct(int pricePerProduct) {
+        this.pricePerProduct = pricePerProduct;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public CartItemDto() {
+
+
+    }
 }

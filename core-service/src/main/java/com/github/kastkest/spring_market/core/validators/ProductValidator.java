@@ -1,5 +1,6 @@
 package com.github.kastkest.spring_market.core.validators;
 
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import com.github.kastkest.spring_market.core.exceptions.ValidationException;
 import org.springframework.stereotype.Component;
 

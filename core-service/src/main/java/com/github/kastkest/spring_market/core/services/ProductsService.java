@@ -1,6 +1,7 @@
 package com.github.kastkest.spring_market.core.services;
 
 
+import com.github.kastkest.spring_market.api.core.ProductDto;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
 import com.github.kastkest.spring_market.core.repositories.ProductsRepository;
 import com.github.kastkest.spring_market.core.repositories.specifications.ProductsSpecifications;

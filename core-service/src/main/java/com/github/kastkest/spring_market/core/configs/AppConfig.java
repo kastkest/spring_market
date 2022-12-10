@@ -1,9 +1,12 @@
 package com.github.kastkest.spring_market.core.configs;
 
+import com.github.kastkest.spring_market.core.properties.CartServiceIntegrationProperties;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -13,11 +16,12 @@ import reactor.netty.tcp.TcpClient;
 
 import java.util.concurrent.TimeUnit;
 
-@Configuration
-public class AppConfig {
 
-    @Value("${integrations.cart-service.url}")
-    private String cartServiceUrl;
+@EnableConfigurationProperties(CartServiceIntegrationProperties.class)
+@Configuration
+@RequiredArgsConstructor
+public class AppConfig {
+    private CartServiceIntegrationProperties cartServiceIntegrationProperties;
 
     @Bean
     public WebClient productServiceWebClient() {
@@ -31,7 +35,7 @@ public class AppConfig {
 
         return WebClient
                 .builder()
-                .baseUrl(cartServiceUrl)
+                .baseUrl(cartServiceIntegrationProperties.getUrl())
                 .clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))
                 .build();
     }

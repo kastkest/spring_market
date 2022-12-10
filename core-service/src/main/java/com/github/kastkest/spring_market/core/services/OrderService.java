@@ -8,7 +8,7 @@ import com.github.kastkest.spring_market.api.core.OrderDetailsDto;
 import com.github.kastkest.spring_market.core.entities.Order;
 import com.github.kastkest.spring_market.core.entities.OrderItem;
 import com.github.kastkest.spring_market.core.repositories.OrdersRepository;
-import com.github.kastkest.spring_market.integrations.CartsServiceIntegration;
+import com.github.kastkest.spring_market.core.integrations.CartsServiceIntegration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.github.kastkest.spring_market.integrations;
+package com.github.kastkest.spring_market.core.integrations;
 
 
 import com.github.kastkest.spring_market.api.cart.CartDto;

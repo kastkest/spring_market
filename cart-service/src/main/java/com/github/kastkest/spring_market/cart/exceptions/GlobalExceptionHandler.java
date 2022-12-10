@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Slf4j
 public class GlobalExceptionHandler {
     @ExceptionHandler
-    public ResponseEntity<AppError> catchResourceNotFoundException(ResourceNotFoundException e) {
+    public ResponseEntity<CartServiceAppError> catchResourceNotFoundException(ResourceNotFoundException e) {
         log.error(e.getMessage(), e);
-        return new ResponseEntity<>(new AppError(HttpStatus.NOT_FOUND.value(), e.getMessage()), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new CartServiceAppError(CartServiceAppError.CartServiceErrors.CART_IS_BROKEN.name(), e.getMessage()), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler
-    public ResponseEntity<AppError> catchCartBrokenException(CartBrokenException e) {
+    public ResponseEntity<CartServiceAppError> catchCartBrokenException(CartBrokenException e) {
         log.error(e.getMessage(), e);
-        return new ResponseEntity<>(new AppError(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(new CartServiceAppError(CartServiceAppError.CartServiceErrors.CART_IS_BROKEN.name() ,e.getMessage()),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 

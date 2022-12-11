@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,8 +14,8 @@ public class CartItem {
     private Long productId;
     private String productTitle;
     private int quantity;
-    private int pricePerProduct;
-    private int price;
+    private BigDecimal pricePerProduct;
+    private BigDecimal price;
 
 
     public CartItem(ProductDto productDto) {
@@ -26,6 +28,6 @@ public class CartItem {
 
     public void changeQuantity(int delta) {
         this.quantity += delta;
-        this.price = this.quantity * this.pricePerProduct;
+        this.price = this.pricePerProduct.multiply(BigDecimal.valueOf(this.quantity));
     }
 }

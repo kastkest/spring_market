@@ -22,5 +22,8 @@ spring:
       settings:
         web-allow-others: false
 integrations:
-  core-service:
+  cart-service:
     url: http://localhost:5555/cart
+    connect-timeout: 1000
+    read-timeout: 20000
+    write-timeout: 1000

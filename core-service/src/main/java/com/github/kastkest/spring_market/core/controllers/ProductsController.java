@@ -3,6 +3,7 @@ package com.github.kastkest.spring_market.core.controllers;
 
 import com.github.kastkest.spring_market.api.core.ProductDto;
 import com.github.kastkest.spring_market.api.exceptions.ResourceNotFoundException;
+import com.github.kastkest.spring_market.cart.exceptions.CartServiceAppError;
 import com.github.kastkest.spring_market.core.converters.ProductConverter;
 import com.github.kastkest.spring_market.core.entities.Product;
 import com.github.kastkest.spring_market.core.services.ProductsService;
@@ -59,6 +60,10 @@ public class ProductsController {
                     @ApiResponse(
                             description = "Успешный ответ", responseCode = "200",
                             content = @Content(schema = @Schema(implementation = ProductDto.class))
+                    ),
+                    @ApiResponse(
+                            description = "Ошибка пользователя", responseCode = "400",
+                            content = @Content(schema = @Schema(implementation = CartServiceAppError.class))
                     )
             }
     )

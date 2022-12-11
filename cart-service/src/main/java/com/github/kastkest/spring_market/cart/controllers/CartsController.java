@@ -22,9 +22,7 @@ public class CartsController {
 
     @GetMapping("/{uuid}")
     public CartDto getCart(@RequestHeader(required = false) String username, @PathVariable String uuid) {
-        if(10<20) {
-            throw new CartBrokenException("Корзина сломана")
-        };
+
         return cartConverter.modelToDto(cartService.getCurrentCart(getCurrentCartUuid(username, uuid)));
     }
 
